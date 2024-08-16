@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="image/x-icon" href="./image/ricky.png">
+  <title>Rick and Morty</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    @media screen and (max-width: 700px) {
+      .row {   
+        flex-direction: column;
+      }
+    }
+      :root {
+    --bg-color: #252230;
+    --text-color: #fff;
+}
+
+    * {
+    
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nova Flat', cursive;
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+      
+.title-section {
+  background-color: green;
+  padding: 20px;
+  text-align: center;
+  height: 80px; 
+  width: 35%;
+  border-radius: 10px;
+  align-items: center;
+  margin: auto;
+  margin-top: 0;
+}
+  
+.title-section:hover {
+  transform: scale(1.1);
+  background-color: black;
+}
+      
+
+.h1 {
+    color: black;
+    margin: 0;
+    line-height: 40px; 
+}
+      
+
+.image-container {
+    width: 80%;
+    margin: 0 auto;
+    justify-content: flex-start;
+    color: green;
+}
+      
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+}
+      
+.w3-ul {
+    display: inline-block;
+    text-align: left;
+}
+      
+.w3-card-4 {
+    border-radius: 10px; 
+    background-color: black; 
+    border: 2px solid aqua;
+    box-shadow: aqua 0 15px 30px -5px;
+}
+      
+    .w3-card-4 img {
+  border-top-left-radius : 10px; 
+  border-top-right-radius : 10px; 
+}
+  
+.w3-card-4:hover {
+   transform: scale(1.1);
+}
+      
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 20px;  
+}
+      
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+      
+@keyframes remove-cursor {
+    from { border-right-color: aqua; }
+    to { border-right-color: transparent; }
+}
+      
+.multiple-text {
+    overflow: hidden; 
+    white-space: nowrap; 
+    border-right: .15rem solid yellow; 
+    font-size:'Nova Flat', cursive;
+    margin: 0 auto; 
+    letter-spacing: .11rem; 
+    animation: typing 3.5s steps(30, end) forwards, remove-cursor 1s 3.5s forwards; 
+
+}      
+    </style>
+  </head>
+<body>
+
+      <div class="title-section" data-sr="enter left over 1s">
+             <h1 class="multiple-text"><strong>Rick and Morty Characters</strong></h1>
+        </div>
+
+      <div class="image-container w3-padding-16 card-grid">
+          
+             {{range .}}
+          
+      <div class="w3-card-4 w3-margin" style="width: 100%;" data-sr="enter left over 1s">
+          
+             <img src="{{.Image}}" alt="{{.Name}}" style="width:100%">
+          
+      <div class="w3-container w3-center">
+          
+             <h4>{{.Name}}</h4>
+             <p>Status: {{.Status}}</p>
+             <p>Species: {{.Species}}</p>
+             <p>Gender: {{.Gender}}</p>
+             <p>Origin: {{.Origin.Origin}}</p>
+             <p>Location: {{.Location.Location}}</p>
+   </div>
+</div>
+
+          {{end}}
+</div>
+  </body>
+</html>
